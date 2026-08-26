@@ -1,0 +1,48 @@
+generated: '2026-08-25'
+method: probed
+source: https://authentication.liqid.de/.well-known/openid-configuration
+docs: null
+docs_note: >-
+  LIQID publishes no scope reference page - there is no developer program to document
+  one for. These scopes are read directly from the scopes_supported array of the
+  anonymously served OpenID Connect discovery document for the customer identity
+  provider, and are the standard OIDC claim scopes rather than a product permission model.
+scope_count: 14
+scopes:
+- name: openid
+  description: Request an ID token (OpenID Connect core).
+- name: profile
+  description: Basic profile claims.
+- name: offline_access
+  description: Issue a refresh token.
+- name: name
+  description: Full name claim.
+- name: given_name
+  description: Given name claim.
+- name: family_name
+  description: Family name claim.
+- name: nickname
+  description: Nickname claim.
+- name: email
+  description: Email address claim.
+- name: email_verified
+  description: Email verification status claim.
+- name: picture
+  description: Profile picture claim.
+- name: created_at
+  description: Account creation timestamp claim.
+- name: identities
+  description: Linked identity provider records.
+- name: phone
+  description: Phone number claim.
+- name: address
+  description: Postal address claim.
+other_surfaces:
+- host: app.liqid.de
+  source: https://app.liqid.de/.well-known/openid-configuration
+  scope_count: 36
+  note: >-
+    Not enumerated here as LIQID scopes. The app.liqid.de discovery document advertises
+    36 scopes, all of them Salesforce platform scopes (cdp_ingest_api, cdp_query_api,
+    wave_api, pardot_api, chatter_api, einstein_gpt_api, mcp_api, ...), which describe
+    the hosting platform rather than anything LIQID designed or documents.

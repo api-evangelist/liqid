@@ -1,0 +1,109 @@
+generated: '2026-08-25'
+method: probed
+source: >-
+  well-known/liqid-authentication-openid-configuration.json,
+  https://www.liqid.de/ueber-uns/sicherheit, https://www.liqid.de/ueber-uns/impressum
+note: >-
+  LIQID publishes no API contract, so every entry below is asserted against documents it
+  does serve - OIDC/OAuth discovery metadata and its own regulatory disclosures - not
+  against an OpenAPI. Standards with no evidence are recorded as conforms:false rather
+  than omitted, so the absence is countable.
+standards:
+- id: oidc
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: >-
+    https://authentication.liqid.de/.well-known/openid-configuration returns HTTP 200
+    application/json with issuer, authorization_endpoint, token_endpoint, userinfo_endpoint
+    and jwks_uri (probed 2026-08-25).
+- id: oauth2
+  name: OAuth 2.0
+  conforms: true
+  evidence: >-
+    Discovery advertises authorization_code, client_credentials, refresh_token and
+    device_code grants with a token endpoint at
+    https://authentication.liqid.de/oauth/token.
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+  conforms: true
+  evidence: >-
+    https://authentication.liqid.de/.well-known/oauth-authorization-server returns HTTP
+    200 with the same metadata document.
+- id: rfc7636
+  name: PKCE (RFC 7636)
+  conforms: true
+  evidence: 'code_challenge_methods_supported: [S256, plain] in the discovery document.'
+- id: rfc9449
+  name: OAuth 2.0 Demonstrating Proof of Possession (DPoP, RFC 9449)
+  conforms: true
+  evidence: 'dpop_signing_alg_values_supported: [ES256] in the discovery document.'
+- id: rfc9116
+  name: security.txt (RFC 9116)
+  conforms: false
+  evidence: >-
+    https://www.liqid.de/.well-known/security.txt is served (HTTP 200) but carries only a
+    Contact field; the mandatory Expires field is absent, so the file is a valid pointer
+    and not a conformant security.txt.
+- id: rfc9457
+  name: Problem Details for HTTP APIs (RFC 9457)
+  conforms: false
+  evidence: >-
+    api.liqid.de returns {"message":"unauthorized"} with content-type application/json on
+    401, not application/problem+json.
+- id: fapi
+  name: FAPI 1.0 / 2.0
+  conforms: false
+  evidence: >-
+    No FAPI profile is claimed and no FAPI-required metadata (mtls endpoint aliases,
+    PAR endpoint, request_parameter_supported) is present; request_parameter_supported
+    is false.
+- id: psd2
+  name: PSD2 / Berlin Group NextGenPSD2
+  conforms: false
+  evidence: >-
+    Not applicable as published. LIQID is a Wertpapierinstitut (securities institution)
+    under WpIG, not a payment or account servicing payment service provider, and serves
+    no /v1/accounts or /berlin-group surface.
+- id: fdx
+  name: Financial Data Exchange (FDX)
+  conforms: false
+  evidence: No FDX endpoints, entitlements or registry membership published.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No OpenAPI document served on www.liqid.de, api.liqid.de, app.liqid.de or
+    authentication.liqid.de (all probes 404 or 401, 2026-08-25).
+domain_standard:
+  detected: false
+  market: European digital wealth management / discretionary portfolio management
+  candidates_probed:
+  - id: fdx
+    result: not-found
+  - id: psd2-berlin-group
+    result: not-applicable
+  - id: fix
+    result: not-found
+  - id: iso-20022
+    result: not-found
+  note: >-
+    No domain standard is declared in any contract because no contract is published.
+    Reward-only dimension - recorded as absent, not as a failure.
+regulatory:
+  regime: EU / Germany - securities and investment services
+  supervisors:
+  - BaFin (Bundesanstalt fuer Finanzdienstleistungsaufsicht)
+  - Deutsche Bundesbank
+  licence: >-
+    LIQID Asset Management GmbH holds a BaFin licence for Anlagevermittlung,
+    Anlageberatung, Abschlussvermittlung and Finanzportfolioverwaltung under section 15(1)
+    in conjunction with section 2(2) nos. 3, 4, 5 and 9 WpIG.
+  frameworks_named_on_site:
+  - WpIG (Wertpapierinstitutsgesetz)
+  - KAGB section 1(19) no. 33 (semi-professional investor definition)
+  - GDPR / DSGVO
+  source: https://www.liqid.de/ueber-uns/impressum
+  deposit_protection: >-
+    Cash deposits protected up to EUR 3,000,000 through V-Bank's membership of the
+    deposit insurance fund of German banks; securities held as segregated assets.
+  source_security: https://www.liqid.de/ueber-uns/sicherheit

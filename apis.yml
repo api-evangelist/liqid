@@ -1,17 +1,39 @@
 aid: liqid
 name: LIQID Investments
-description: 'LIQID Investments is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'LIQID Investments GmbH (Berlin, founded 2016) is one of Europe''s largest
+  digital wealth managers, serving affluent private clients with more than EUR 4 billion
+  in assets under management and 12,000+ customers. Through its regulated subsidiary
+  LIQID Asset Management GmbH — a securities institution supervised by BaFin and the
+  Deutsche Bundesbank — it offers digitally delivered discretionary portfolio management
+  (LIQID Global, Global Future, Select and Income ETF strategies from EUR 100,000),
+  cash management, and access to private markets: Private Markets NXT from EUR 20,000
+  and Private Equity PRO / Venture PRO from EUR 200,000 for semi-professional investors.
+  Custody sits with V-Bank. LIQID delivers the product through a web dashboard and a
+  mobile app, not through a public developer program: it publishes no OpenAPI, no
+  developer portal and no SDKs. The public machine-readable surface it does serve is a
+  security.txt pointing at a vulnerability disclosure policy and OpenID Connect discovery
+  metadata for its Auth0-backed customer login; its own application API at api.liqid.de
+  answers 401 on every path.'
 url: https://raw.githubusercontent.com/api-evangelist/liqid/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/64ef741eda12a184cd3a1b42/69397469b5838bd712bbb8bb_LIQID-HOME_OpenGraph_1200x630_small.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment
 specificationVersion: '0.20'
 created: '2026-08-25'
 modified: '2026-08-25'
 tags:
 - Company
+- Wealth Management
+- Investing
+- Financial Services
+- Private Equity
+- Venture Capital
+- Asset Management
+- Fintech
+- Germany
+- BaFin
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,78 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: VulnerabilityDisclosure
+  url: security/liqid-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/liqid-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/liqid-inc_stock/
+  url: https://www.liqid.de/
+- type: SignUp
+  url: https://www.liqid.de/kunde-werden
+- type: Login
+  url: https://authentication.liqid.de/login
+- type: PrivacyPolicy
+  url: https://www.liqid.de/datenschutz
+- type: TermsOfService
+  url: https://www.liqid.de/ueber-uns/impressum
+- type: Support
+  url: https://www.liqid.de/ueber-uns/kontakt
+- type: Blog
+  url: https://www.liqid.de/wissen/liqid-smart-letter
+- type: GitHubOrganization
+  url: https://github.com/LIQIDTechnology
+- type: Pricing
+  url: https://www.liqid.de/loesungen/wealth-management/ueberblick
+- type: WellKnown
+  url: well-known/liqid-well-known.yml
+- type: SecurityTxt
+  url: well-known/liqid-security.txt
+- type: Security
+  url: security/liqid-vulnerability-disclosure.yml
+- type: Authentication
+  url: authentication/liqid-authentication.yml
+- type: OAuthScopes
+  url: scopes/liqid-scopes.yml
+- type: Conformance
+  url: conformance/liqid-conformance.yml
+- type: Compliance
+  url: conformance/liqid-conformance.yml
+- type: Lifecycle
+  url: lifecycle/liqid-lifecycle.yml
+- type: RateLimits
+  url: rate-limits/liqid-rate-limits.yml
+- type: Plans
+  url: plans/liqid-plans-pricing.yml
+- type: Packages
+  url: packages/liqid-packages.yml
+- type: LLMsTxt
+  url: llms/liqid-llms.txt
+x-enrichment:
+  date: '2026-08-25'
+  status: minimal
+  artifacts_added: 16
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    LIQID sells discretionary wealth management to private clients through a web dashboard
+    and a mobile app and runs no developer program at all - developer.liqid.de and
+    docs.liqid.de do not resolve, and its own backend api.liqid.de returns
+    {"message":"unauthorized"} with HTTP 401 on every path probed except /health.
+  evidence:
+  - url: https://api.liqid.de/openapi.json
+    status: 401
+  - url: https://api.liqid.de/health
+    status: 200
+  - url: https://www.liqid.de/openapi.json
+    status: 404
+  - url: https://www.liqid.de/.well-known/api-catalog
+    status: 404
+  - url: https://www.liqid.de/.well-known/agent-card.json
+    status: 404
+  - url: https://www.liqid.de/.well-known/security.txt
+    status: 200
+  - url: https://authentication.liqid.de/.well-known/openid-configuration
+    status: 200
+  checked: '2026-08-25'

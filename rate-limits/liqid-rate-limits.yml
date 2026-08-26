@@ -1,0 +1,15 @@
+generated: '2026-08-25'
+method: searched
+source: https://www.liqid.de/
+limit_count: 0
+note: >-
+  No rate limits are published. LIQID operates no developer program and no public API
+  reference, so there is no documented quota, window, burst allowance or 429 behaviour to
+  record. Its application API at api.liqid.de answers 401 on every path except /health, so
+  no rate-limit response headers could be observed anonymously either.
+headers: []
+observed:
+- url: https://api.liqid.de/health
+  http_status: 200
+  rate_limit_headers: []
+  fetched: '2026-08-25'

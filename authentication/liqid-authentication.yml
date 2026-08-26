@@ -1,0 +1,101 @@
+generated: '2026-08-25'
+method: probed
+source: https://authentication.liqid.de/.well-known/openid-configuration
+scope_note: >-
+  LIQID publishes no developer API, so there is no third-party authentication model to
+  document. What follows is the authentication surface LIQID actually serves anonymously:
+  the OpenID Connect discovery metadata of the identity providers that front its own
+  customer applications. Nothing here grants an external developer access; it is recorded
+  because it is the only machine-readable auth contract the company publishes.
+providers:
+- name: LIQID customer login
+  host: authentication.liqid.de
+  platform: Auth0 (custom domain; tenant liqid.eu.auth0.com)
+  discovery: https://authentication.liqid.de/.well-known/openid-configuration
+  discovery_http_status: 200
+  rfc8414_authorization_server_metadata: https://authentication.liqid.de/.well-known/oauth-authorization-server
+  rfc8414_http_status: 200
+  file: well-known/liqid-authentication-openid-configuration.json
+  issuer: https://authentication.liqid.de/
+  endpoints:
+    authorization: https://authentication.liqid.de/authorize
+    token: https://authentication.liqid.de/oauth/token
+    userinfo: https://authentication.liqid.de/userinfo
+    jwks: https://authentication.liqid.de/.well-known/jwks.json
+    revocation: https://authentication.liqid.de/oauth/revoke
+    registration: https://authentication.liqid.de/oidc/register
+    device_authorization: https://authentication.liqid.de/oauth/device/code
+    backchannel_authentication: https://authentication.liqid.de/bc-authorize
+    mfa_challenge: https://authentication.liqid.de/mfa/challenge
+  schemes:
+  - type: openIdConnect
+    id: liqid-oidc
+    detail: OpenID Connect 1.0 discovery document served anonymously.
+  - type: oauth2
+    id: liqid-oauth2-authorization-code
+    flow: authorizationCode
+    pkce: true
+    pkce_methods:
+    - S256
+    - plain
+  - type: oauth2
+    id: liqid-oauth2-client-credentials
+    flow: clientCredentials
+  - type: oauth2
+    id: liqid-oauth2-device-code
+    flow: deviceCode
+    grant: urn:ietf:params:oauth:grant-type:device_code
+  grant_types_supported:
+  - client_credentials
+  - authorization_code
+  - refresh_token
+  - password
+  - implicit
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - client_secret_post
+  - private_key_jwt
+  - none
+  id_token_signing_algs:
+  - HS256
+  - RS256
+  - PS256
+  dpop_signing_algs:
+  - ES256
+  mfa: true
+  mfa_detail: >-
+    An mfa_challenge_endpoint is advertised and Auth0 MFA grant types
+    (mfa-oob, mfa-otp, mfa-recovery-code) are supported.
+  backchannel_logout: true
+- name: LIQID client portal
+  host: app.liqid.de
+  platform: Salesforce Experience Cloud on a LIQID domain
+  discovery: https://app.liqid.de/.well-known/openid-configuration
+  discovery_http_status: 200
+  file: well-known/liqid-app-openid-configuration.json
+  issuer: https://app.liqid.de
+  note: >-
+    Served from a host LIQID controls, but the document describes the Salesforce
+    platform's OAuth surface (scopes_supported are Salesforce platform scopes such as
+    cdp_query_api, wave_api and pardot_api), not a LIQID-designed API.
+  schemes:
+  - type: openIdConnect
+    id: liqid-app-oidc
+  - type: oauth2
+    id: liqid-app-oauth2
+    flow: authorizationCode
+application_api:
+  host: api.liqid.de
+  documented: false
+  http_status_unauthenticated: 401
+  body_unauthenticated: '{"message":"unauthorized"}'
+  health_endpoint: https://api.liqid.de/health
+  health_http_status: 200
+  note: >-
+    LIQID's own application API answers 401 with a JSON envelope on every path probed
+    (/, /docs, /redoc, /api-docs, /v1, /openapi, /graphql, /mcp, /.well-known/*). Only
+    /health responds anonymously. No scheme, header name or token format is published,
+    so the authentication model for this API is undocumented.

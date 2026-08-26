@@ -1,0 +1,44 @@
+generated: '2026-08-25'
+method: probed
+source: live probes of LIQID hosts and a walk of https://www.liqid.de/sitemap.xml (618 URLs)
+versioning:
+  scheme: none-published
+  note: >-
+    No API is published, so no versioning scheme, media-type version or version header is
+    documented anywhere on the public site.
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  rfc8594: false
+  note: >-
+    No deprecation or sunset policy exists on the public site. There is no developer
+    program to deprecate against.
+status_page:
+  present: false
+  probed:
+  - url: https://status.liqid.de
+    result: DNS NXDOMAIN (curl exit 6)
+  - url: https://www.liqid.de/sitemap.xml
+    result: HTTP 200; no status, uptime or incident page among the 618 indexed URLs
+  note: >-
+    No status page. Service incidents are not publicly communicated; the contact route is
+    the support phone and service@liqid.de.
+sla:
+  published: false
+  note: No SLA or uptime commitment is published for the customer applications.
+support:
+  channels:
+  - kind: phone
+    value: '+49 30 3080 6655'
+  - kind: email
+    value: service@liqid.de
+  - kind: page
+    value: https://www.liqid.de/ueber-uns/kontakt
+  source: https://www.liqid.de/ueber-uns/kontakt
+product_reporting:
+  note: >-
+    LIQID does publish a dated, regular reporting cadence for its strategies - quarterly
+    updates per strategy (LIQID Global, Global Future, Select, Income) back to Q1 2024
+    under https://www.liqid.de/app/quaterly-updates-wm/ - but these are investment
+    performance reports, not an API changelog.
+  example: https://www.liqid.de/app/quaterly-updates-wm/liqid-global-q1-2026

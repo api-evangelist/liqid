@@ -1,0 +1,39 @@
+generated: '2026-08-25'
+method: searched
+source: >-
+  registry.npmjs.org search, pypi.org/pypi/liqid/json, https://github.com/LIQIDTechnology
+package_count: 0
+packages: []
+note: >-
+  LIQID Investments publishes no client libraries. Its only public GitHub repository is an
+  archived fork of texei-sfdx-plugin (a third-party Salesforce DX plugin), which is tooling
+  it consumes rather than an SDK it ships. No package on npm, PyPI, Maven Central, NuGet,
+  pkg.go.dev, RubyGems, Packagist or crates.io is published by LIQID Investments.
+github_org:
+  url: https://github.com/LIQIDTechnology
+  http_status: 200
+  public_repos: 1
+  repos:
+  - name: texei-sfdx-plugin
+    language: TypeScript
+    license: BSD-3-Clause
+    archived: true
+    first_party: false
+    version: null
+    published: null
+    note: >-
+      Archived fork of Texei's Salesforce DX plugin, last updated 2023-04-21. Not a LIQID
+      SDK; recorded so a later round does not mistake it for one.
+rejected:
+- name: liqid
+  registry: npm
+  url: https://www.npmjs.com/package/liqid
+  description: Node.js library for the Liqid API.
+  repository: https://github.com/liqidinc/liqid-node
+  version: null
+  published: null
+  reason: >-
+    WRONG COMPANY. This package belongs to Liqid, Inc. (liqid.com, Broomfield CO,
+    composable data-centre infrastructure), a name collision with LIQID Investments GmbH
+    (liqid.de, Berlin, digital wealth management). Its repository org is liqidinc. Not
+    recorded as a LIQID Investments SDK.

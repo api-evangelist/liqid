@@ -1,0 +1,109 @@
+generated: '2026-08-25'
+method: probed
+source: live GET probes of /.well-known/* on every LIQID host discovered 2026-08-25
+note: >-
+  LIQID publishes no OpenAPI and no developer portal, so the only machine-readable
+  documents on its hosts are a security.txt and OpenID Connect / OAuth 2.0
+  authorization-server discovery metadata for the two identity providers behind its
+  customer applications. app.liqid.de answers HTTP 200 with an HTML shell for every
+  unknown path, so only its openid-configuration (application/json) is counted as a
+  real document; every other 200 on that host is a single-page-app catch-all and is
+  recorded here as a miss.
+hosts:
+- host: www.liqid.de
+  role: marketing site (Webflow)
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: liqid-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: authentication.liqid.de
+  role: customer identity provider (Auth0 custom domain, tenant liqid.eu.auth0.com)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: liqid-authentication-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: liqid-authentication-oauth-authorization-server.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: app.liqid.de
+  role: client portal (Salesforce Experience Cloud on a LIQID domain)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: liqid-app-openid-configuration.json
+    note: >-
+      Salesforce org discovery document served under LIQID's own domain; issuer is
+      https://app.liqid.de and every scope in scopes_supported is a Salesforce platform
+      scope (cdp_*, wave_api, pardot_api, chatter_api), so this describes the hosting
+      platform's OAuth surface, not a LIQID product API.
+  - path: /.well-known/security.txt
+    status: 200
+    note: HTML single-page-app shell, not a document - counted as a miss.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: HTML single-page-app shell, not a document - counted as a miss.
+  - path: /.well-known/api-catalog
+    status: 200
+    note: HTML single-page-app shell, not a document - counted as a miss.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    note: HTML single-page-app shell, not a document - counted as a miss.
+  - path: /.well-known/agent-card.json
+    status: 200
+    note: HTML single-page-app shell, not a document - counted as a miss.
+  - path: /.well-known/agent.json
+    status: 200
+    note: HTML single-page-app shell, not a document - counted as a miss.
+- host: api.liqid.de
+  role: LIQID application API (Google Cloud); authenticated clients only
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+- host: developer.liqid.de
+  role: probed on spec; does not resolve
+  documents:
+  - path: /.well-known/api-catalog
+    status: 0
+    note: DNS NXDOMAIN - no developer subdomain exists.
+- host: docs.liqid.de
+  role: probed on spec; does not resolve
+  documents:
+  - path: /.well-known/api-catalog
+    status: 0
+    note: DNS NXDOMAIN - no docs subdomain exists.

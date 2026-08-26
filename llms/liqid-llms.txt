@@ -1,0 +1,74 @@
+# LIQID Investments
+
+> LIQID Investments GmbH is a Berlin-based digital wealth manager for affluent private
+> clients, with more than EUR 4 billion in assets under management and over 12,000
+> customers. Portfolio management is delivered by its regulated subsidiary LIQID Asset
+> Management GmbH, a securities institution supervised by BaFin and the Deutsche
+> Bundesbank. LIQID has no public API, no developer portal and no SDKs: the product is
+> consumed through a web dashboard and a mobile app.
+
+## No developer program
+
+LIQID publishes no OpenAPI, AsyncAPI, GraphQL SDL, Postman collection, MCP server or
+agent card. Probed 2026-08-25:
+
+- https://www.liqid.de/openapi.json - HTTP 404
+- https://api.liqid.de/openapi.json - HTTP 401
+- https://api.liqid.de/graphql - HTTP 401
+- https://www.liqid.de/.well-known/api-catalog - HTTP 404
+- https://www.liqid.de/.well-known/agent-card.json - HTTP 404
+- https://developer.liqid.de - DNS NXDOMAIN
+- https://docs.liqid.de - DNS NXDOMAIN
+
+api.liqid.de is LIQID's own application backend. It answers `{"message":"unauthorized"}`
+with HTTP 401 on every path probed; only https://api.liqid.de/health responds anonymously
+(HTTP 200, `{"status":"ok","redis":"ready","database":"running"}`).
+
+## Machine-readable surface that IS published
+
+- [security.txt](https://www.liqid.de/.well-known/security.txt): Contact points at the
+  vulnerability disclosure policy. No Expires field, so not RFC 9116 conformant.
+- [Vulnerability Disclosure Policy](https://vdp.liqid.de): coordinated disclosure intake,
+  hosted on zerodisclo.com. No bug bounty.
+- [OpenID Connect discovery - customer login](https://authentication.liqid.de/.well-known/openid-configuration):
+  Auth0 custom domain. Authorization code with PKCE (S256), client credentials, device
+  code, refresh token; DPoP ES256; MFA challenge endpoint.
+- [OAuth 2.0 authorization server metadata](https://authentication.liqid.de/.well-known/oauth-authorization-server): RFC 8414, same document.
+- [OpenID Connect discovery - client portal](https://app.liqid.de/.well-known/openid-configuration):
+  Salesforce Experience Cloud running on a LIQID domain; the advertised scopes are
+  Salesforce platform scopes, not LIQID product scopes.
+
+## Products
+
+- [Wealth Management overview](https://www.liqid.de/loesungen/wealth-management/ueberblick): LIQID Global, Global Future, Select, Income. From EUR 100,000; all-in service fee from 0.25% p.a. (Global, Global Future) and from 0.60% p.a. (Select).
+- [Private Markets NXT](https://www.liqid.de/loesungen/private-markets-nxt/ueberblick): Private Equity NXT, Private Debt NXT, Infrastructure NXT. From EUR 20,000.
+- [Private Equity PRO](https://www.liqid.de/loesungen/private-markets-pro/private-equity-pro): from EUR 200,000 for semi-professional investors (EUR 100,000 professional); management fee 0.59-0.79% p.a. by band, ~0.20% p.a. operating costs, 1.00% initial fee.
+- [LIQID Venture](https://www.liqid.de/loesungen/private-markets-pro/liqid-venture): venture capital fund-of-funds for experienced private investors.
+
+## Company
+
+- [Homepage](https://www.liqid.de/)
+- [Who we are](https://www.liqid.de/ueber-uns/wer-wir-sind)
+- [Security](https://www.liqid.de/ueber-uns/sicherheit): custody at V-Bank, securities held as segregated assets, cash deposits protected to EUR 3,000,000.
+- [Impressum](https://www.liqid.de/ueber-uns/impressum): LIQID Investments GmbH, Kurfuerstendamm 177, 10707 Berlin, HRB 165254 B; LIQID Asset Management GmbH, HRB 177099 B, BaFin licensed under section 15(1) WpIG.
+- [Privacy policy](https://www.liqid.de/datenschutz)
+- [Contact](https://www.liqid.de/ueber-uns/kontakt): +49 30 3080 6655, service@liqid.de
+- [Careers](https://www.liqid.de/ueber-uns/karriere)
+- [Press](https://www.liqid.de/ueber-uns/presse)
+- [GitHub organization](https://github.com/LIQIDTechnology): one archived third-party fork; no first-party code.
+
+## Content
+
+- [LIQID Smart Letter](https://www.liqid.de/wissen/liqid-smart-letter): market commentary, 123 articles indexed.
+- [Glossary](https://www.liqid.de/wissen/glossar): 102 investment terms.
+- [LIQID Essentials](https://www.liqid.de/wissen/liqid-essentials): 77 explainers.
+- [Quarterly strategy updates](https://www.liqid.de/app/quaterly-updates-wm/liqid-global-q1-2026): per-strategy performance reporting back to Q1 2024.
+
+## Notes for agents
+
+- There is nothing here to call. Do not construct requests against api.liqid.de; it is a
+  first-party application backend with no published contract and no self-service access.
+- Account access is available only to LIQID customers through
+  https://authentication.liqid.de/login.
+- To become a customer: https://www.liqid.de/kunde-werden
+- Security issues: https://vdp.liqid.de

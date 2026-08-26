@@ -64,5 +64,16 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LIQID Investments is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/liqid-inc_stock/
+LIQID Investments GmbH (Berlin, founded 2016) is one of Europe's largest digital wealth managers,
+with more than EUR 4 billion in assets under management and 12,000+ clients. Discretionary portfolio
+management is delivered by its BaFin-supervised subsidiary LIQID Asset Management GmbH.
+
+LIQID runs **no developer program**. It publishes no OpenAPI, no developer portal and no SDKs; its
+own application backend at `api.liqid.de` answers HTTP 401 on every path except `/health`. What it
+does serve publicly is a `security.txt` pointing at a vulnerability disclosure policy, and OpenID
+Connect / OAuth 2.0 discovery metadata for the identity providers behind its customer applications.
+Those are the artifacts captured here.
+
+- https://www.liqid.de/
+- https://vdp.liqid.de
+- https://github.com/LIQIDTechnology

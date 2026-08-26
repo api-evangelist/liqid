@@ -1,0 +1,69 @@
+generated: '2026-08-25'
+method: searched
+source: https://www.liqid.de/loesungen/wealth-management/ueberblick
+note: >-
+  These are LIQID's investment product tiers and their published fees, not API plans -
+  LIQID sells wealth management, not API access, and publishes no API pricing because it
+  publishes no API. Minimums and fee percentages below are quoted from the public product
+  overview pages as read on 2026-08-25.
+currency: EUR
+billing_period: annual
+plan_count: 6
+plans:
+- name: LIQID Global
+  category: wealth-management
+  minimum_investment: 100000
+  fee: from 0.25% p.a.
+  fee_basis: all-in service fee (Servicegebuehr), scaled by invested amount
+  source: https://www.liqid.de/loesungen/wealth-management/ueberblick
+- name: LIQID Global Future
+  category: wealth-management
+  minimum_investment: 100000
+  fee: from 0.25% p.a.
+  fee_basis: all-in service fee (Servicegebuehr), scaled by invested amount
+  source: https://www.liqid.de/loesungen/wealth-management/ueberblick
+- name: LIQID Select
+  category: wealth-management
+  minimum_investment: 100000
+  fee: from 0.60% p.a.
+  fee_basis: all-in service fee (Servicegebuehr), scaled by invested amount
+  source: https://www.liqid.de/loesungen/wealth-management/ueberblick
+- name: LIQID Income / Cash Management
+  category: cash-management
+  minimum_investment: 100000
+  fee: null
+  fee_note: >-
+    Fee not stated on the overview page; only the EUR 100,000 minimum is published there.
+  source: https://www.liqid.de/loesungen/wealth-management/ueberblick
+- name: LIQID Private Markets NXT (Private Equity NXT, Private Debt NXT, Infrastructure NXT)
+  category: private-markets
+  minimum_investment: 20000
+  fee: null
+  fee_note: >-
+    The overview page publishes the EUR 20,000 minimum and states that a performance
+    participation applies once a preferred return is reached, but discloses no percentage;
+    the fee schedule sits in the product information documents.
+  source: https://www.liqid.de/loesungen/private-markets-nxt/ueberblick
+- name: LIQID Private Equity PRO
+  category: private-markets
+  minimum_investment: 200000
+  minimum_investment_note: >-
+    EUR 200,000 for semi-professional investors; EUR 100,000 for professional investors.
+    Restricted to (semi-)professional investors under KAGB section 1(19) no. 33.
+  fee: 0.59-0.79% p.a. management fee
+  fee_detail:
+  - band: under EUR 500,000
+    fee: 0.79% p.a.
+  - band: EUR 500,000 - 1,000,000
+    fee: 0.69% p.a.
+  - band: over EUR 1,000,000
+    fee: 0.59% p.a.
+  other_fees:
+  - name: laufende Kosten (operating costs)
+    value: approx. 0.20% p.a.
+  - name: Initialgebuehr (initial fee)
+    value: 1.00%
+  source: https://www.liqid.de/loesungen/private-markets-pro/private-equity-pro
+api_plans:
+  count: 0
+  note: No API plan, developer tier, free tier or usage-based pricing is published.
