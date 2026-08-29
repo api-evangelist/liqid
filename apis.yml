@@ -15,6 +15,17 @@ description: 'LIQID Investments GmbH (Berlin, founded 2016) is one of Europe''s 
   metadata for its Auth0-backed customer login; its own application API at api.liqid.de
   answers 401 on every path.'
 url: https://raw.githubusercontent.com/api-evangelist/liqid/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/64ef741eda12a184cd3a1b42/69397469b5838bd712bbb8bb_LIQID-HOME_OpenGraph_1200x630_small.png
 x-type: company
 x-source: harvest:secondary-market
