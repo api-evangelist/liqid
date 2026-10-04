@@ -54,7 +54,7 @@ tags:
 - Company
 - Wealth Management
 - Investing
-- Financial-Services
+- Financial Services
 - Private Equity
 - Venture Capital
 - Asset Management
@@ -72,6 +72,7 @@ tags_raw:
 - Fintech
 - Germany
 - BaFin
+- Financial-Services
 apis: []
 maintainers:
 - FN: Kin Lane
