@@ -67,3 +67,45 @@ plans:
 api_plans:
   count: 0
   note: No API plan, developer tier, free tier or usage-based pricing is published.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: LIQID Global
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: LIQID Global Future
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: LIQID Select
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: LIQID Income / Cash Management
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: 'LIQID Private Markets NXT (Private Equity NXT, Private Debt NXT, Infrastructure '
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: LIQID Private Equity PRO
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
