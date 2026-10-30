@@ -64,16 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LIQID Investments GmbH (Berlin, founded 2016) is one of Europe's largest digital wealth managers,
-with more than EUR 4 billion in assets under management and 12,000+ clients. Discretionary portfolio
-management is delivered by its BaFin-supervised subsidiary LIQID Asset Management GmbH.
+LIQID Investments GmbH (Berlin, founded 2016) is one of Europe's largest digital wealth managers, serving affluent private clients with more than EUR 4 billion in assets under management and 12,000+ customers. Through its regulated subsidiary LIQID Asset Management GmbH — a securities institution supervised by BaFin and the Deutsche Bundesbank — it offers digitally delivered discretionary portfolio management (LIQID Global, Global Future, Select and Income ETF strategies from EUR 100,000), cash management, and access to private markets: Private Markets NXT from EUR 20,000 and Private Equity PRO / Venture PRO from EUR 200,000 for semi-professional investors. Custody sits with V-Bank. LIQID delivers the product through a web dashboard and a mobile app, not through a public developer program: it publishes no OpenAPI, no developer portal and no SDKs. The public machine-readable surface it does serve is a security.txt pointing at a vulnerability disclosure policy and OpenID Connect discovery metadata for its Auth0-backed customer login; its own application API at api.liqid.de answers 401 on every path.
 
-LIQID runs **no developer program**. It publishes no OpenAPI, no developer portal and no SDKs; its
-own application backend at `api.liqid.de` answers HTTP 401 on every path except `/health`. What it
-does serve publicly is a `security.txt` pointing at a vulnerability disclosure policy, and OpenID
-Connect / OAuth 2.0 discovery metadata for the identity providers behind its customer applications.
-Those are the artifacts captured here.
+**Areas:** Company · Wealth Management · Investing · Financial Services · Private Equity · Venture Capital · Asset Management · Fintech · Germany · BaFin
 
-- https://www.liqid.de/
-- https://vdp.liqid.de
-- https://github.com/LIQIDTechnology
+## LIQID Investments on APIs.io
+
+Everything profiled for LIQID Investments is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/liqid/](https://apis.io/providers/liqid/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Liqid Authentication](https://apis.io/security/liqid/liqid-authentication/)
+- [Liqid Domain Security](https://apis.io/security/liqid/liqid-domain-security/)
+- [Liqid Trust Center](https://apis.io/security/liqid/liqid-trust-center/)
+- [Liqid Vulnerability Disclosure](https://apis.io/security/liqid/liqid-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Liqid Scopes](https://apis.io/scopes/liqid/liqid-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Liqid Plans Pricing](https://apis.io/plans/liqid/liqid-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Liqid Rate Limits](https://apis.io/rate-limits/liqid/liqid-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.liqid.de/)
+- [Pricing](https://www.liqid.de/loesungen/wealth-management/ueberblick)
+- [Sign up](https://www.liqid.de/kunde-werden)
+- [Support](https://www.liqid.de/ueber-uns/kontakt)
+- [Blog](https://www.liqid.de/wissen/liqid-smart-letter)
+- [Terms of service](https://www.liqid.de/ueber-uns/impressum)
+- [Privacy policy](https://www.liqid.de/datenschutz)
+- [GitHub](https://github.com/LIQIDTechnology)
+
+## API Evangelist rating
+
+**Kin Score 34.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 84.2 |
+
+**Agent readiness 17.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/liqid/](https://apis.io/providers/liqid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LIQID Investments: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/liqid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
